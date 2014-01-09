@@ -1,24 +1,28 @@
-OculusHmdOrientation
-====================
+Fullscreen
+==========
 
-Minimal application to get orientation of the Oculus Rift HMD.
-
-Mostly inspired from the [Minimal Oculus Application](https://developer.oculusvr.com/wiki/Minimal_Oculus_Application) of the official OculusVR Wiki.
+Minimal application to show freeglut Game Mode.
 
 ### License
 
-Copyright (c) 2012 Sébastien Rombauts (sebastien.rombauts@gmail.com)
+Copyright (c) 2014 Sébastien Rombauts (sebastien.rombauts@gmail.com)
 
 Distributed under the MIT License (MIT) (See accompanying file LICENSE.txt
 or copy at http://opensource.org/licenses/MIT)
 
 ### Getting and Building the dependencies
 
-1. Get the submodule (OculusSDK)
+1. Get the submodule (freeglut)
 
 ```bash
 git submodule init
 git submodule update
+```
+
+2. Get the development libraries under Linux :
+
+```bash
+sudo apt-get install libxrandr-dev libxi-dev
 ```
 
 ### Building the application

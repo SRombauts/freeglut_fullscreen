@@ -9,9 +9,6 @@ project(fullscreen)
 
 ## Core source code ##
 
-# All includes are relative to the "src" directory 
-include_directories("${PROJECT_SOURCE_DIR}/src")
-
 # adding a new file require explicittly modifing the CMakeLists.txt
 # so that CMake knows that it should rebuild the project (it is best practice)
 
@@ -20,9 +17,20 @@ add_executable(fullscreen
  src/Fullscreen.cpp
 )
 
+
+## Libraries ##
+
+# add the subdirectory of the freeglut static library (but disable any other build)
+set(FREEGLUT_BUILD_SHARED_LIBS OFF CACHE BOOL "Build FreeGLUT shared library.")
+set(FREEGLUT_BUILD_DEMOS OFF CACHE BOOL       "Build FreeGLUT demos.")
+add_definitions(-DFREEGLUT_STATIC)
+add_subdirectory(freeglut/freeglut/freeglut)
+include_directories("${PROJECT_SOURCE_DIR}/freeglut/freeglut/freeglut/include")
+
+
 ## Linking ##
 
 # link the executable with all required libraries
-target_link_libraries(fullscreen glut)
+target_link_libraries(fullscreen freeglut_static)
 
 

@@ -4,6 +4,8 @@ build
 lib
 fullscreen
 doc
+config.h
+freeglut.pc
 
 CMakeCache.txt
 CMakeFiles
