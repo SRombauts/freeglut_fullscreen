@@ -95,13 +95,31 @@ int main(int argc, char **argv) {
 */
     // setting the game mode replaces the above
     // calls to set the window size and position.
-    glutGameModeString("1920x1080:32");
-    // enter full screen
+    const char* pGameModeString = "1920x1080:32";
+    std::cout << "Trying game mode '" << pGameModeString << "'...\n";
+    glutGameModeString(pGameModeString);
     if (glutGameModeGet(GLUT_GAME_MODE_POSSIBLE)) {
+        // enter full screen
         glutEnterGameMode();
     } else {
-        std::cout << "The select mode is not available\n";
-        exit(1);
+        pGameModeString = "1680x1050:32";
+        std::cout << "Trying game mode '" << pGameModeString << "'...\n";
+        glutGameModeString(pGameModeString);
+        if (glutGameModeGet(GLUT_GAME_MODE_POSSIBLE)) {
+            // enter full screen
+            glutEnterGameMode();
+        } else {
+            std::cout << "Trying game mode '" << pGameModeString << "'...\n";
+            pGameModeString = "1280x720:32";
+            glutGameModeString(pGameModeString);
+            if (glutGameModeGet(GLUT_GAME_MODE_POSSIBLE)) {
+                // enter full screen
+                glutEnterGameMode();
+            } else {
+                std::cout << "Not any supported mode available\n";
+                exit(1);
+            }
+        }
     }
 
     // register all callbacks
