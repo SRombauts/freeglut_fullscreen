@@ -2,7 +2,7 @@ Debug
 Release
 build
 lib
-fullscreen
+freeglut_fullscreen
 doc
 config.h
 freeglut.pc

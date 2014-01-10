@@ -4,7 +4,7 @@
 # or copy at http://opensource.org/licenses/MIT) 
 
 cmake_minimum_required(VERSION 2.6)
-project(fullscreen)
+project(freeglut_fullscreen)
 
 
 ## Core source code ##
@@ -13,7 +13,7 @@ project(fullscreen)
 # so that CMake knows that it should rebuild the project (it is best practice)
 
 # add sources for the executable :
-add_executable(fullscreen
+add_executable(freeglut_fullscreen
  src/Fullscreen.cpp
 )
 
@@ -31,6 +31,6 @@ include_directories("${PROJECT_SOURCE_DIR}/freeglut/freeglut/freeglut/include")
 ## Linking ##
 
 # link the executable with all required libraries
-target_link_libraries(fullscreen freeglut_static)
+target_link_libraries(freeglut_fullscreen freeglut_static)
 
 
